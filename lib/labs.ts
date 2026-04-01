@@ -36,6 +36,12 @@ export type SaveLabInput = {
 };
 
 const LABS_DIR = getContentDir("labs");
+const LAB_MODULE_DISPLAY_NAMES: Record<LabModule, string> = {
+  "Game Dev": "Game Prototypes",
+  "Ops Scripts": "Tooling Experiments",
+  "Idea Experiments": "Concept Lab",
+  Backlog: "Next Queue",
+};
 
 function getLabFilePath(slug: string) {
   return path.join(LABS_DIR, `${slug}.md`);
@@ -123,4 +129,8 @@ export async function deleteLab(slug: string) {
 
 export function sortLabs(labs: Lab[]) {
   return sortProjectLikeItems(labs);
+}
+
+export function getLabModuleDisplayName(module: LabModule) {
+  return LAB_MODULE_DISPLAY_NAMES[module];
 }

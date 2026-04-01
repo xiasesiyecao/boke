@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cloud Runner</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=IBM+Plex+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-panel">
+        <div class="hero-copy">
+          <p class="eyebrow">LIGHTWEIGHT ADVENTURE RUNNER</p>
+          <h1>Cloud Runner</h1>
+          <p class="hero-text">
+            这版不再往浏览器小恐龙复刻，而是做成偏横版冒险的轻量跑酷。一路收集星果、拉高连击、充满冲刺槽，撞穿前方障碍。
+          </p>
+        </div>
+
+        <div class="status-card">
+          <div class="score-grid">
+            <div class="score-block">
+              <span class="label">分数</span>
+              <strong id="score">00000</strong>
+            </div>
+            <div class="score-block">
+              <span class="label">最高</span>
+              <strong id="best-score">00000</strong>
+            </div>
+            <div class="score-block">
+              <span class="label">星果</span>
+              <strong id="pickup-count">00</strong>
+            </div>
+            <div class="score-block">
+              <span class="label">连击</span>
+              <strong id="combo-count">x1</strong>
+            </div>
+          </div>
+
+          <div class="meter-card">
+            <div class="meter-head">
+              <span class="label">冲刺能量</span>
+              <span id="boost-status" class="meter-state">未激活</span>
+            </div>
+            <div class="meter-track">
+              <div id="boost-fill" class="meter-fill"></div>
+            </div>
+          </div>
+
+          <div id="power-status" class="power-status">
+            <span id="glider-status" class="badge">滑翔机: 未激活</span>
+            <span id="armor-status" class="badge">铠甲: 无</span>
+            <span id="exp-status" class="badge">经验果: 0/3</span>
+          </div>
+
+          <p id="game-message" class="game-message">按空格开始，收集星果充能，蓄满后按向前键释放冲刺</p>
+        </div>
+      </section>
+
+      <section class="game-card">
+        <div class="game-header">
+          <div class="badge-row">
+            <span class="badge">Adventure Lane</span>
+            <span class="badge badge-good">Pickup Rush</span>
+            <span class="badge badge-warn">Obstacle Burst</span>
+          </div>
+          <div class="button-row">
+            <button id="start-button" class="game-button">开始</button>
+            <button id="pause-button" class="game-button game-button-muted">暂停</button>
+            <button id="restart-button" class="game-button game-button-muted">重开</button>
+          </div>
+        </div>
+
+        <div class="game-frame">
+          <div id="boost-banner" class="boost-banner" aria-live="polite">
+            <span class="boost-banner-label">BOOST</span>
+            <strong id="boost-timer">4.2s</strong>
+          </div>
+          <div class="boost-flare"></div>
+          <div class="boost-streaks"></div>
+          <div class="game-over-panel" aria-hidden="true">
+            <span class="game-over-tag">RUN FAILED</span>
+            <strong id="game-over-title">袋鼠摔倒了</strong>
+            <p>撞上障碍，按空格或点击“重开”重新出发。</p>
+          </div>
+          <div class="sky-orbs"></div>
+          <div class="sky-ribbons"></div>
+          <div class="sky-glow"></div>
+          <div class="cloud cloud-a"></div>
+          <div class="cloud cloud-b"></div>
+          <div class="cloud cloud-c"></div>
+          <div class="cloud cloud-d"></div>
+          <div class="ridge ridge-far"></div>
+          <div class="ridge ridge-mid"></div>
+          <div class="hill hill-back"></div>
+          <div class="hill hill-front"></div>
+          <div class="track" id="track">
+            <div class="forest forest-back"></div>
+            <div class="forest forest-front"></div>
+            <div class="floating-platform platform-a"></div>
+            <div class="floating-platform platform-b"></div>
+            <div class="distance-markers">
+              <span>START</span>
+              <span>FIELD</span>
+              <span>GLADE</span>
+              <span>RIDGE</span>
+              <span>SKY</span>
+            </div>
+            <div id="player" class="player">
+              <div class="player-ear player-ear-back"></div>
+              <div class="player-ear player-ear-front"></div>
+              <div class="player-face"></div>
+              <div class="player-tail"></div>
+              <div class="player-pouch"></div>
+              <div class="player-wing"></div>
+              <div class="player-shield"></div>
+              <div class="player-arm"></div>
+              <div class="player-leg player-leg-front"></div>
+              <div class="player-leg player-leg-back"></div>
+              <div class="player-ghost"></div>
+            </div>
+            <div class="ground-glow"></div>
+          </div>
+        </div>
+
+        <div class="controls">
+          <div>
+            <p class="controls-title">操作</p>
+            <p class="controls-text">`空格` / `↑` 跳跃，`↓` 下蹲，`→` / `D` 释放冲刺，`P` 暂停。小人形态下蹲可充能，分数每到 1000 速度提升一级并切换昼夜。</p>
+          </div>
+          <div class="touch-row">
+            <button id="jump-button" class="touch-button">跳跃</button>
+            <button id="boost-button" class="touch-button touch-button-boost">冲刺</button>
+            <button id="duck-button" class="touch-button touch-button-alt">下蹲</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./script.js"></script>
+  </body>
+</html>

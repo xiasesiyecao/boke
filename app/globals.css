@@ -1334,6 +1334,414 @@ code {
   font-size: 1.05rem;
 }
 
+.labs-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+.labs-hero::after {
+  content: "";
+  position: absolute;
+  inset: auto -10% -30% 35%;
+  height: 220px;
+  border-radius: 999px;
+  background:
+    radial-gradient(circle at center, rgba(109, 236, 185, 0.2), rgba(109, 236, 185, 0)),
+    radial-gradient(circle at 30% 50%, rgba(117, 217, 255, 0.14), rgba(117, 217, 255, 0));
+  pointer-events: none;
+}
+
+.labs-chip-grid,
+.labs-flow-grid,
+.labs-band-grid {
+  display: grid;
+  gap: 16px;
+  margin-top: 22px;
+}
+
+.labs-chip-grid,
+.labs-band-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.labs-chip-card,
+.labs-flow-card,
+.labs-band-card {
+  position: relative;
+  min-width: 0;
+  padding: 20px 22px;
+  border-radius: 20px;
+  border: 1px solid rgba(128, 163, 192, 0.14);
+  background:
+    linear-gradient(180deg, rgba(12, 23, 39, 0.86), rgba(9, 17, 29, 0.72)),
+    radial-gradient(circle at top left, rgba(109, 236, 185, 0.08), transparent 45%);
+  overflow: hidden;
+}
+
+.labs-chip-card p,
+.labs-flow-card p,
+.labs-band-card small,
+.labs-band-copy {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.labs-flow-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.labs-flow-card span,
+.labs-band-card span {
+  display: inline-flex;
+  color: #89b8d8;
+  font-family: var(--font-mono), monospace;
+  font-size: 0.76rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.labs-flow-card h3,
+.labs-band-card strong {
+  display: block;
+  margin: 14px 0 0;
+  font-family: var(--font-display), sans-serif;
+}
+
+.labs-band {
+  margin-top: 24px;
+}
+
+.labs-band-panel {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+  gap: 20px;
+  margin-top: 24px;
+  padding: 28px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-xl);
+  background:
+    linear-gradient(180deg, rgba(10, 20, 34, 0.92), rgba(8, 15, 26, 0.82)),
+    radial-gradient(circle at top right, rgba(109, 236, 185, 0.12), transparent 32%);
+  box-shadow: var(--shadow);
+}
+
+.labs-band-copy {
+  max-width: 52ch;
+  margin: 0;
+}
+
+.labs-band-card small {
+  display: block;
+  margin-top: 10px;
+}
+
+.game-lab-shell,
+.game-detail-shell {
+  padding-top: 28px;
+}
+
+.game-lab-hero,
+.game-lab-board,
+.game-lab-list,
+.game-detail-board,
+.game-detail-grid-wrap {
+  margin-top: 24px;
+}
+
+.game-lab-surface,
+.game-detail-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+  gap: 20px;
+}
+
+.game-lab-surface-copy h2,
+.game-detail-hero h1,
+.game-lab-list h2,
+.game-detail-card h2 {
+  margin: 14px 0 0;
+  font-family: var(--font-display), sans-serif;
+  line-height: 1.05;
+  letter-spacing: -0.04em;
+}
+
+.game-lab-surface-copy h2,
+.game-detail-hero h1 {
+  font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.game-lab-surface-copy p,
+.game-detail-hero p,
+.game-lab-card p,
+.game-detail-card p {
+  color: var(--muted);
+  line-height: 1.85;
+}
+
+.game-lab-preview,
+.game-detail-preview,
+.game-lab-metric,
+.game-lab-card,
+.game-detail-metric,
+.game-detail-card {
+  border: 1px solid rgba(128, 163, 192, 0.14);
+  background:
+    linear-gradient(180deg, rgba(11, 21, 37, 0.94), rgba(8, 15, 27, 0.82)),
+    radial-gradient(circle at top right, rgba(117, 217, 255, 0.08), transparent 28%);
+  box-shadow: var(--shadow);
+}
+
+.game-lab-preview,
+.game-detail-preview {
+  position: relative;
+  overflow: hidden;
+  min-height: 320px;
+  padding: 24px;
+  border-radius: 26px;
+}
+
+.game-lab-preview-stage,
+.game-detail-preview-head {
+  position: relative;
+  z-index: 1;
+}
+
+.game-lab-preview-stage span,
+.game-detail-preview-head span,
+.game-lab-metric span,
+.game-detail-metric span,
+.game-lab-card-meta span,
+.game-detail-inline-meta span {
+  display: block;
+  color: var(--accent);
+  font-family: var(--font-mono), monospace;
+  font-size: 0.74rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.game-lab-preview-stage strong,
+.game-detail-preview-head strong,
+.game-lab-metric strong,
+.game-detail-metric strong,
+.game-detail-inline-meta strong {
+  display: block;
+  margin-top: 12px;
+  font-family: var(--font-display), sans-serif;
+}
+
+.game-lab-preview-stage small {
+  display: block;
+  max-width: 34ch;
+  margin-top: 12px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+
+.game-lab-preview-grid,
+.game-detail-preview-screen {
+  position: relative;
+  margin-top: 20px;
+  min-height: 210px;
+  border-radius: 22px;
+  border: 1px solid rgba(117, 217, 255, 0.12);
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 18% 24%, rgba(109, 236, 185, 0.14), transparent 18%),
+    linear-gradient(rgba(125, 153, 181, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 153, 181, 0.07) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(6, 13, 24, 0.94), rgba(7, 15, 29, 0.92));
+  background-size:
+    auto,
+    24px 24px,
+    24px 24px,
+    auto;
+}
+
+.game-lab-preview-grid div,
+.game-detail-orb {
+  position: absolute;
+  border-radius: 999px;
+  filter: blur(0.4px);
+}
+
+.game-lab-preview-grid div:nth-child(1) {
+  inset: 18% auto auto 16%;
+  width: 88px;
+  height: 88px;
+  background: rgba(117, 217, 255, 0.82);
+}
+
+.game-lab-preview-grid div:nth-child(2) {
+  inset: 48% auto auto 56%;
+  width: 52px;
+  height: 52px;
+  background: rgba(109, 236, 185, 0.85);
+}
+
+.game-lab-preview-grid div:nth-child(3) {
+  inset: 62% auto auto 28%;
+  width: 138px;
+  height: 2px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.game-lab-preview-grid div:nth-child(4) {
+  inset: 22% 10% auto auto;
+  width: 110px;
+  height: 110px;
+  border: 1px solid rgba(117, 217, 255, 0.16);
+  background: rgba(117, 217, 255, 0.06);
+}
+
+.game-lab-board,
+.game-detail-board,
+.game-lab-grid,
+.game-detail-grid-wrap {
+  display: grid;
+  gap: 16px;
+}
+
+.game-lab-board {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.game-detail-board {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.game-lab-grid,
+.game-detail-grid-wrap {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.game-lab-metric,
+.game-lab-card,
+.game-detail-metric,
+.game-detail-card {
+  min-width: 0;
+  border-radius: 22px;
+  padding: 22px;
+}
+
+.game-lab-link {
+  display: block;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    background 180ms ease;
+}
+
+.game-lab-link:hover {
+  transform: translateY(-4px);
+  border-color: rgba(117, 217, 255, 0.28);
+}
+
+.game-lab-card h3 {
+  margin: 16px 0 0;
+  font-family: var(--font-display), sans-serif;
+  font-size: 1.8rem;
+  line-height: 1.08;
+}
+
+.game-lab-card-meta {
+  display: grid;
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.game-lab-card-meta strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 0.98rem;
+  line-height: 1.7;
+}
+
+.game-lab-card-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.game-lab-card-actions .ghost-link,
+.game-lab-card-actions .primary-link,
+.game-detail-hero .ghost-link,
+.game-detail-hero .primary-link {
+  min-width: 0;
+  padding: 12px 16px;
+}
+
+.game-detail-preview-screen {
+  margin-top: 18px;
+}
+
+.game-frame-shell {
+  margin-top: 18px;
+  border-radius: 22px;
+  border: 1px solid rgba(117, 217, 255, 0.12);
+  overflow: hidden;
+  background: rgba(4, 10, 18, 0.96);
+}
+
+.game-frame {
+  display: block;
+  width: 100%;
+  min-height: 620px;
+  border: 0;
+  background: #02060d;
+}
+
+.game-detail-grid {
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.08), transparent 28%),
+    linear-gradient(rgba(125, 153, 181, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(125, 153, 181, 0.05) 1px, transparent 1px);
+  background-size:
+    auto,
+    22px 22px,
+    22px 22px;
+}
+
+.game-detail-orb {
+  box-shadow: 0 0 60px currentColor;
+}
+
+.orb-a {
+  left: 18%;
+  top: 22%;
+  width: 78px;
+  height: 78px;
+  color: rgba(117, 217, 255, 0.78);
+  background: currentColor;
+}
+
+.orb-b {
+  right: 22%;
+  top: 48%;
+  width: 54px;
+  height: 54px;
+  color: rgba(109, 236, 185, 0.8);
+  background: currentColor;
+}
+
+.orb-c {
+  left: 44%;
+  bottom: 18%;
+  width: 16px;
+  height: 120px;
+  border-radius: 999px;
+  color: rgba(255, 255, 255, 0.4);
+  background: currentColor;
+}
+
+.game-detail-inline-meta + .game-detail-inline-meta {
+  margin-top: 18px;
+}
+
 .studio-shell {
   margin-top: 24px;
 }
@@ -1752,6 +2160,19 @@ code {
   .page-hero-layout {
     grid-template-columns: 1fr;
   }
+
+  .labs-flow-grid,
+  .labs-band-panel,
+  .labs-chip-grid,
+  .labs-band-grid,
+  .game-lab-surface,
+  .game-detail-hero,
+  .game-lab-board,
+  .game-detail-board,
+  .game-lab-grid,
+  .game-detail-grid-wrap {
+    grid-template-columns: 1fr;
+  }
 }
 
 @media (max-width: 720px) {
@@ -1800,6 +2221,20 @@ code {
 
   .summary {
     font-size: 0.98rem;
+  }
+
+  .labs-band-panel,
+  .labs-chip-card,
+  .labs-flow-card,
+  .labs-band-card,
+  .game-lab-preview,
+  .game-detail-preview,
+  .game-lab-metric,
+  .game-lab-card,
+  .game-detail-metric,
+  .game-detail-card,
+  .game-frame-shell {
+    padding: 22px;
   }
 
   .hero-actions,

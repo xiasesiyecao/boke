@@ -223,6 +223,47 @@ export default async function Home() {
         </div>
       </section>
 
+      <section className="section labs-band">
+        <div className="section-heading">
+          <span className="section-label">Labs</span>
+          <h2>前端游戏、交互实验和轻量原型，会先在这里公开迭代。</h2>
+        </div>
+
+        <div className="labs-band-panel">
+          <div>
+            <p className="labs-band-copy">
+              Labs 是这个站点里更轻、更快的一层。相比正式项目，它更适合承接浏览器小游戏、玩法验证、界面实验、AI 协作页面和小型工具。
+            </p>
+            <div className="hero-actions">
+              <Link href="/labs" className="primary-link">
+                进入 Labs
+              </Link>
+              <Link href="/projects" className="ghost-link">
+                查看正式项目
+              </Link>
+            </div>
+          </div>
+
+          <div className="labs-band-grid">
+            <article className="labs-band-card">
+              <span>Track</span>
+              <strong>Frontend Games</strong>
+              <small>玩法原型、交互反馈、节奏和可玩性验证</small>
+            </article>
+            <article className="labs-band-card">
+              <span>Track</span>
+              <strong>Interaction Concepts</strong>
+              <small>动态界面、信息表达和视觉实验</small>
+            </article>
+            <article className="labs-band-card">
+              <span>Track</span>
+              <strong>Tooling</strong>
+              <small>开发辅助面板、脚本和 AI 协作页面</small>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <section className="capability-band">
         <div className="section-heading compact">
           <span className="section-label">Capability Matrix</span>
